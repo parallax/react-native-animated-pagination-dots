@@ -15,6 +15,7 @@ export interface SlidingDotProps {
   dotContainerStyle?: ViewStyle;
   slidingIndicatorStyle?: ViewStyle;
   marginHorizontal?: number;
+  containerWidth?: number;
 }
 
 const SlidingDot = ({
@@ -25,14 +26,16 @@ const SlidingDot = ({
   dotStyle,
   slidingIndicatorStyle,
   marginHorizontal,
+  containerWidth
 }: SlidingDotProps) => {
   const { width } = useWindowDimensions();
 
   const defaultProps = {
     dotSize: dotSize || 12,
     marginHorizontal: marginHorizontal || 3,
+    containerWidth: containerWidth || width
   };
-  const inputRange = [-width, 0, width];
+  const inputRange = [-defaultProps.containerWidth, 0, defaultProps.containerWidth];
   const translateX = scrollX.interpolate({
     inputRange,
     outputRange: [
