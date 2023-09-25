@@ -21,6 +21,7 @@ export interface LiquidLikeProps {
   strokeWidth?: number;
   bigHead?: boolean;
   bigHeadScale?: number;
+  containerWidth?: number
 }
 
 const AnimatedLine = Animated.createAnimatedComponent(Line);
